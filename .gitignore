@@ -43,8 +43,8 @@ _testmain.go
 .idea/
 
 services/*.toml
-app/*.toml
-app/app
+app/secrets_*.toml
+app/medco-unlynx
 app/loader/*.toml
 app/loader/files/
 app/loader/scripts/*.txt

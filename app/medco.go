@@ -42,6 +42,15 @@ const (
 
 	optionPublicTomlPath      = "publicTomlPath"
 	optionPublicTomlPathShort = "pub"
+
+	optionKeysTomlPath      = "keysTomlFile"
+	optionKeysTomlPathShort = "keys"
+
+	optionNodesToAdd      = "nodesToAdd"
+	optionNodesToAddShort = "n"
+
+	optionOutputPathTomlFile  = "outputTomlFile"
+	optionOutputPathTomlShort = "out"
 )
 
 /*
@@ -79,6 +88,22 @@ func main() {
 		cli.StringFlag{
 			Name:  optionDecryptKey + ", " + optionDecryptKeyShort,
 			Usage: "Base64-encoded key to decrypt a value",
+		},
+	}
+
+	replicationFlags := []cli.Flag{
+		cli.StringFlag{
+			Name:  optionKeysTomlPath + ", " + optionKeysTomlPathShort,
+			Usage: "Path to a file that lists all public/private/secrets for a set of nodes",
+		},
+		cli.IntFlag{
+			Name:  optionNodesToAdd + ", " + optionNodesToAddShort,
+			Usage: "Number of extra nodes to add/replicate",
+		},
+		cli.StringFlag{
+			Name:  optionOutputPathTomlFile + ", " + optionOutputPathTomlShort,
+			Value: "keys_output.toml",
+			Usage: "Path to the output path",
 		},
 	}
 
@@ -143,6 +168,16 @@ func main() {
 			Aliases: []string{"k"},
 			Usage:   "Generate a pair of public/private keys.",
 			Action:  keyGenerationFromApp,
+		},
+		// CLIENT END: KEY GENERATION ------------
+
+		// BEGIN CLIENT: KEYS REPLICATION ----------
+		{
+			Name:    "replication",
+			Aliases: []string{"r"},
+			Usage:   "Replicate a node in a group of nodes (keep the same key setup)",
+			Action:  replicateRoster,
+			Flags:   replicationFlags,
 		},
 		// CLIENT END: KEY GENERATION ------------
 

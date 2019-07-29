@@ -1,0 +1,14 @@
+[[node]]
+  PubKey  = "2fb70ecd3347316b2c1fa130b3ef18be60daa4d3d3cc66a8bbb409c57a1d66c8"
+  SecKey  = "af457bd25e2401e20f92ef1f1564a4716e3a1b10be3ab3c5f9cd0a1c81f34f07"
+  Secrets = ["mmTfA84oZHkURF0wBeu3nQRJT6sjvkFhCSwE/TbAmwo=", "fSyKyMkTfyYEc01uDFLHaEqlaaQUdOb8sV3sNfqyFwI=", "Pz2h3j50HEMNq2txvRZgsf+r48j57ONeMdm1MqLSfgc="]
+
+[[node]]
+  PubKey  = "b46f755195b594c6fd056036f276b00197da04801c01f32fb055f6abf606a2b1"
+  SecKey  = "4203b0fb2dbe5ccb8cff358d5be42fd8612e5269b5d6ad0d22c613371641fe04"
+  Secrets = ["87hq8MgGbKy9Oa0XNezfQ7B69Ky6IdiutkTZACRC5As=", "70hhKYYfwYugN7fCobPWHApxQIRzpmk/vOtO5CftDwE=", "LZ74i54VwEUZXkJGqb0YQoGMfXm/XAbjHoT0phvNnAs="]
+
+[[node]]
+  PubKey  = "071e379405706e0cab11c4ad2509180f36859b8cfdc88c3cf68882fe266571ea"
+  SecKey  = "8d1b40debecfb8324cbe303129ef7e9ebd66b5ce660adeed7bbdabc753837908"
+  Secrets = ["EXmTRaSldsQviB+o9OyG9PSJPFgMzrNxHqkFmL8GCgU=", "pMfvHlZ4M9t5RXF9n0/aPN/qMoSQxVghYovy5ihhcQ4=", "BiDdI1Xg1MgGmDDXP/MXhqaQPVUDGIb54yfBLzsuhQc="]

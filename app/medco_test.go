@@ -20,7 +20,7 @@ func TestReplicateRoster(t *testing.T) {
 	sks := make([]kyber.Scalar, 0)
 	pubks := make([]kyber.Point, 0)
 	ephemeral := make([][]kyber.Scalar, 0)
-	for i := 0; i < 3; i++ {
+	for i := 0; i < len(sksBase64); i++ {
 		tmpSk, err := encoding.StringHexToScalar(libunlynx.SuiTe, sksBase64[i])
 		assert.NoError(t, err)
 		sks = append(sks, tmpSk)
@@ -30,7 +30,7 @@ func TestReplicateRoster(t *testing.T) {
 		pubks = append(pubks, tmpPk)
 
 		tmpEp := make([]kyber.Scalar, 0)
-		for j := 0; j < 3; j++ {
+		for j := 0; j < len(sksBase64); j++ {
 			secret := libunlynx.SuiTe.Scalar()
 			b, err := base64.StdEncoding.DecodeString(ephemeralBase64[i][j])
 			assert.NoError(t, err)
@@ -111,4 +111,57 @@ func addEphemeralCollumnWise(data [][]kyber.Scalar) []kyber.Scalar {
 		}
 	}
 	return expectedSums
+}
+
+func TestA(t *testing.T) {
+	original := [][]string{{"mmTfA84oZHkURF0wBeu3nQRJT6sjvkFhCSwE/TbAmwo=", "mmTfA84oZHkURF0wBeu3nQRJT6sjvkFhCSwE/TbAmwo=", "mmTfA84oZHkURF0wBeu3nQRJT6sjvkFhCSwE/TbAmwo="},
+		{"g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM="},
+		{"kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI="},
+	}
+
+	ephemeralOriginal := make([][]kyber.Scalar, 0)
+	for i := 0; i < 3; i++ {
+		tmpEp := make([]kyber.Scalar, 0)
+		for j := 0; j < 3; j++ {
+			secret := libunlynx.SuiTe.Scalar()
+			b, err := base64.StdEncoding.DecodeString(original[i][j])
+			assert.NoError(t, err)
+
+			err = secret.UnmarshalBinary(b)
+			assert.NoError(t, err)
+			tmpEp = append(tmpEp, secret)
+		}
+		ephemeralOriginal = append(ephemeralOriginal, tmpEp)
+	}
+
+
+	ephemeralBase64 := [][]string{{"g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM="},
+		{"kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI="},
+		{"wlbJypglVA3fkmBYE8rFZl8Dr_10kLejTPoeg0nxIA0=", "kKgk29szNahtc5Z73UYfKwP1cDd2GKipy0b4osL7TQg=", "iMAz5R7czVEgOqYzF-ffnVb9p11NkZ6wcAJ7mB9xyQM=", "uH4IKWqzyK86ZBKy141NSs-F-9DFF9JODFGGuj3xAA0=", "OVn8xa9BrDnxfdJz49JOU9FofuhubRKdq6QVyyeQrQQ=", "NatxyFXMuH-DlGXG2PbrZqrgU9AeNddTLP-kBN1fHwg="},
+		{"QgA4gGco55QRQCDE01R7MEdO51Zw4-VdWb_NOZQUOAI=", "kWwMzxAszD7krG4OUH8ifHx4dwu5Y-dHw7K73qZFLgU=", "V2WHqbfim3Ij7Swi8OJsqRteypdD-0-9YjKv04E3Mgw=", "8LaiX_aiKhi4n0LS-csVr0TdiKG9vBaCdnIwrZ8ruA8=", "dOC-401CkCDD2BQgrOkEWfkwihCih1UUY3DnOfxZGg0=", "kgStQLzNRUpZmVANELP0FHkK0PMJuPMsKl4XAYFFdQs="},
+		{"gbAJFxHsD-EvlRXPmGebrI_GlUlGT9SfL9LqooWZYAQ=", "B5NXEq64mM7BNbY-zm-cAgnSdNrweEV0taoXupjkNg8=", "-rz7Xm2awemets5_n47_c7v4yfPHjP6KqVNStYqwIgk=", "L8UtOI2phvLvROgJfmiTY7aQZAYXHw0tQDpNzXZrLg0=", "ZFCV1rw3Y_XZLoRES396j_UEok283P7nKOJjX-OaVAA=", "1Hnq3rAk7scipG01wjLEcp24Gdi3nIT4fNmyAQMBaQw="},
+		{"AjHK_tZRK07KeL7nY166bs4wIw34-s-_M6AsndMg4gY=", "TGRCAWjW7nOtJ5GtxqiXHXwJ8o0DyWz7xIc4wTSa6A0=", "rlUec6QySyMIA7P9PIxK99b0EsLKpFRojKOH2wpnfQE=", "nRHy_BTvDm_eNA_ochx_ajpVZjKJyktjRi4AyOI3tAA=", "dq6E4C3Q1oFcW-n6CKnIdkSqpGRW7NrH0TSjmC87fwg=", "2eLB1T8wnJfBqyhtFwLR2EOlEQ9DNPLnNfWU9dUZngo="},
+	}
+
+	ephemeral := make([][]kyber.Scalar, 0)
+	for i := 0; i < 6; i++ {
+		tmpEp := make([]kyber.Scalar, 0)
+		for j := 0; j < 6; j++ {
+			secret := libunlynx.SuiTe.Scalar()
+			b, err := base64.URLEncoding.DecodeString(ephemeralBase64[i][j])
+			assert.NoError(t, err)
+
+			err = secret.UnmarshalBinary(b)
+			assert.NoError(t, err)
+			tmpEp = append(tmpEp, secret)
+		}
+		ephemeral = append(ephemeral, tmpEp)
+	}
+
+	originalSums := addEphemeralCollumnWise(ephemeralOriginal)
+	log.LLvl1(originalSums)
+
+	realSums := addEphemeralCollumnWise(ephemeral)
+	log.LLvl1(realSums)
+
 }

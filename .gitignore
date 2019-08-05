@@ -45,6 +45,7 @@ _testmain.go
 services/*.toml
 app/secrets_*.toml
 app/medco-unlynx
+app/keys_output.toml
 app/loader/*.toml
 app/loader/files/
 app/loader/scripts/*.txt

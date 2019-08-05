@@ -134,7 +134,6 @@ func TestA(t *testing.T) {
 		ephemeralOriginal = append(ephemeralOriginal, tmpEp)
 	}
 
-
 	ephemeralBase64 := [][]string{{"g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM=", "g2tRgPpPSQUof8bTsGSHJj39k7wfvDO09zYUQHIc7wM="},
 		{"kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI=", "kZfKbXNLx44DclYGXawjNIucNpMFMF3HUFma8peqwAI="},
 		{"wlbJypglVA3fkmBYE8rFZl8Dr_10kLejTPoeg0nxIA0=", "kKgk29szNahtc5Z73UYfKwP1cDd2GKipy0b4osL7TQg=", "iMAz5R7czVEgOqYzF-ffnVb9p11NkZ6wcAJ7mB9xyQM=", "uH4IKWqzyK86ZBKy141NSs-F-9DFF9JODFGGuj3xAA0=", "OVn8xa9BrDnxfdJz49JOU9FofuhubRKdq6QVyyeQrQQ=", "NatxyFXMuH-DlGXG2PbrZqrgU9AeNddTLP-kBN1fHwg="},

@@ -52,7 +52,7 @@ const (
 	optionOutputPathTomlFile  = "outputTomlFile"
 	optionOutputPathTomlShort = "out"
  
-  optionProvidedPubKey = "pubKey"
+  	optionProvidedPubKey = "pubKey"
 
 	optionProvidedPrivKey = "privKey"
 
